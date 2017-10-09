@@ -2,8 +2,8 @@
 <html>
 <head>
 	<title>The Psychic Game</title>
-<!-- 	<script src="javascript/game.js"></script>
- --></head>
+	<link rel="stylesheet" href="css/style.css">
+</head>
 <body>
 	<h1>The Psychic Game</h1>
 	Guess what letter I'm thinking of!!!
@@ -16,7 +16,7 @@
     var guessesLeft = 9;
     var guess = [];
 
-    var computerLetter = computerChoices[Math.floor(Math.random() * 26)];
+    var computerLetter = computerChoices[Math.floor(Math.random() * computerChoices.length)];
     console.log (computerLetter);
 
      var scoreResults =
@@ -30,12 +30,14 @@
   	document.onkeyup = function(event) {
 
 	  	var userInput = event.key;
+	  	userInput = userInput.toLowerCase();
 	  	if (computerChoices.indexOf(userInput) == -1) {
 	 		alert("Invalid guess!") 
 	 	} 
 	 	else if (guess.indexOf(userInput) !== -1){
 	 		alert("You have already guessed this letter!");
 	 	} 
+
 	 	else  { guess.push(userInput);
 
 
